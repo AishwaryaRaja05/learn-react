@@ -1,5 +1,5 @@
-import pads from "./pads"
-
+import padsData from "./pads"
+import React from "react"
 export default function App() {
     /**
      * Challenge part 1:
@@ -10,10 +10,16 @@ export default function App() {
      *    (Don't worry about using the "on" or "color" 
      *    properties yet)
      */
+    const [pads, setPads] = React.useState(padsData)
+
+    const buttonElements = pads.map(pad => (
+        <button key={pad.id}></button>
+    ))
+
     return (
         <main>
             <div className="pad-container">
-                {/* <button>s go here */}
+                {buttonElements}
             </div>
         </main>
     )

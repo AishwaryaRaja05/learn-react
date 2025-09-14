@@ -39,6 +39,11 @@ function MyAwesomeNavbar() {
     )
 }
 
+function MainContent() {
+    return (
+        <h1>React is great!</h1>
+    )
+}
 /**
  * Challenge:
  * Create your very first custom React component!
@@ -51,6 +56,6 @@ function MyAwesomeNavbar() {
 root.render(
     <div>
         <MyAwesomeNavbar />
-        
+        <MainContent />
     </div>
 )

@@ -1,15 +1,22 @@
+import React from "react"
+
 export default function Joke(props) {
+    const [isShown, setIsShown] = React.useState(false)
+
+    function toggleShown() {
+        setIsShown(prevShown => !prevShown)
+    }
+
     /**
      * Challenge:
-     * - Create state `isShown` (boolean, default to `false`)
-     * - Add a button that toggles the value back and forth
+     * Only display the punchline paragraph if `isShown` is true
      */
-    
-    console.log(isShown)
+
     return (
         <div>
             {props.setup && <h3>{props.setup}</h3>}
-            <p>{props.punchline}</p>
+            {isShown && <p>{props.punchline}</p>}
+            <button onClick={toggleShown}>Show punchline</button>
             <hr />
         </div>
     )

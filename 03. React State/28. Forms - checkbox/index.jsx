@@ -13,6 +13,9 @@ function App() {
     const email = formData.get("email")
     const password = formData.get("password")
     const employmentStatus = formData.get("employmentStatus")
+
+    // const dietaryRestrictions = formData.get("dietaryRestrictions") gets only the first checked item
+    const dietaryRestrictions = formData.getAll("dietaryRestrictions")
     console.log(employmentStatus)
   }
 
@@ -22,10 +25,10 @@ function App() {
       <form action={signUp}>
 
         <label htmlFor="email">Email:</label>
-        <input id="email" defaultValue="joe@schmoe.com" type="email" name="email" placeholder="joe@schmoe.com" />
+        <input id="email" defaultValue="joe@schmoe.com" type="email" name="email" placeholder="joe@schmoe.com"/>
 
         <label htmlFor="password">Password:</label>
-        <input id="password" defaultValue="password123" type="password" name="password" />
+        <input id="password" defaultValue="password123" type="password" name="password"/>
 
         <label htmlFor="description">Description:</label>
         <textarea id="description" name="description" defaultValue="This is a description"></textarea>
@@ -33,20 +36,34 @@ function App() {
         <fieldset>
           <legend>Employment Status:</legend>
           <label>
-            <input type="radio" name="employmentStatus" value="unemployed" />
+            <input type="radio" name="employmentStatus" value="unemployed"/>
             Unemployed
-        </label>
+          </label>
           <label>
-            <input type="radio" name="employmentStatus" value="part-time" />
+            <input type="radio" name="employmentStatus" value="part-time"/>
             Part-time
-        </label>
+          </label>
           <label>
-            <input type="radio" name="employmentStatus" defaultChecked={true} value="full-time" />
+            <input type="radio" name="employmentStatus" defaultChecked={true} value="full-time"/>
             Full-time
-        </label>
+          </label>
         </fieldset>
 
-        
+        <fieldset>
+          <legend>Dietary restrictions:</legend>
+          <label>
+            <input type="checkbox" name="dietaryRestrictions" value="kosher"/>
+            Kosher
+          </label>
+          <label>
+            <input type="checkbox" name="dietaryRestrictions" value="vegan"/>
+            Vegan
+          </label>
+          <label>
+            <input type="checkbox" name="dietaryRestrictions" defaultChecked={true} value="gluten-free"/>
+            Gluten-free
+          </label>
+        </fieldset>
 
         <button>Submit</button>
 
@@ -55,4 +72,4 @@ function App() {
   )
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
